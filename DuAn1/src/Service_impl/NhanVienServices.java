@@ -25,8 +25,8 @@ public class NhanVienServices implements INhanvien_services {
         List<NhanVienViewModel> view = new ArrayList<>();
         
         for (NhanVien n : list) {
-            view.add(new NhanVienViewModel(n.getId(), n.getTenTK_NV(), n.getMatKhauNV(),
-                    n.getHoTen(), n.getGioiTinh(), n.getSdt(), n.getNgaySinh(), n.getDiachi(), n.getTrangThai()));
+            view.add(new NhanVienViewModel(n.getId(),n.getTenTK_NV(),n.getMatKhauNV(),n.getHoTen(),n.getNgaySinh(),
+           n.getGioiTinh(),n.getDiachi(),n.getSdt(),n.getLuong(),n.getAnh(),n.getTrangThai() ));
         }
         return view;
     }

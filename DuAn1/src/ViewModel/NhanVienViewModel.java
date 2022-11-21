@@ -15,28 +15,37 @@ public class NhanVienViewModel {
     private String Id;
     private String tkNv;
     private String mkNv;
-
     private String hoTen;
-    private int gioiTinh;
-    private String sdt;
     private Date ngaySinh;
+    private int gioiTinh;
+    
     private String diaChi;
+    private String sdt;
+    private float luong;
+    private String anh;
+
     private int trangThai;
 
     public NhanVienViewModel() {
     }
 
-    public NhanVienViewModel(String Id, String tkNv, String mkNv, String hoTen, int gioiTinh, String sdt, Date ngaySinh, String diaChi, int trangThai) {
+    public NhanVienViewModel(String Id, String tkNv, String mkNv, String hoTen, Date ngaySinh, int gioiTinh, String diaChi, String sdt, float luong, String anh, int trangThai) {
         this.Id = Id;
         this.tkNv = tkNv;
         this.mkNv = mkNv;
         this.hoTen = hoTen;
-        this.gioiTinh = gioiTinh;
-        this.sdt = sdt;
         this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
         this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.luong = luong;
+        this.anh = anh;
         this.trangThai = trangThai;
     }
+
+    
+
+    
 
     public String getId() {
         return Id;
@@ -62,28 +71,12 @@ public class NhanVienViewModel {
         this.mkNv = mkNv;
     }
 
-    public int getGioiTinh() {
-        return gioiTinh;
-    }
-
-    public void setGioiTinh(int gioiTinh) {
-        this.gioiTinh = gioiTinh;
-    }
-
     public String getHoTen() {
         return hoTen;
     }
 
     public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
     }
 
     public Date getNgaySinh() {
@@ -94,12 +87,44 @@ public class NhanVienViewModel {
         this.ngaySinh = ngaySinh;
     }
 
+    public int getGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(int gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
     public String getDiaChi() {
         return diaChi;
     }
 
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public float getLuong() {
+        return luong;
+    }
+
+    public void setLuong(float luong) {
+        this.luong = luong;
+    }
+
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
     }
 
     public int getTrangThai() {

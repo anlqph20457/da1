@@ -11,32 +11,35 @@ import java.util.Date;
  * @author daoqu
  */
 public class NhanVien {
+
     private String id;
     private String tenTK_NV;
     private String MatKhauNV;
     private String HoTen;
-    private int GioiTinh;
-    private String sdt;
     private Date NgaySinh;
+    private int GioiTinh;
     private String Diachi;
+    private String sdt;
+    private float luong;
+    private String anh;
     private int TrangThai;
 
     public NhanVien() {
     }
 
-    public NhanVien(String id, String tenTK_NV, String MatKhauNV, String HoTen, int GioiTinh, String sdt, Date NgaySinh, String Diachi, int TrangThai) {
+    public NhanVien(String id, String tenTK_NV, String MatKhauNV, String HoTen, Date NgaySinh, int GioiTinh, String Diachi, String sdt, float luong, String anh, int TrangThai) {
         this.id = id;
         this.tenTK_NV = tenTK_NV;
         this.MatKhauNV = MatKhauNV;
         this.HoTen = HoTen;
-        this.GioiTinh = GioiTinh;
-        this.sdt = sdt;
         this.NgaySinh = NgaySinh;
+        this.GioiTinh = GioiTinh;
         this.Diachi = Diachi;
+        this.sdt = sdt;
+        this.luong = luong;
+        this.anh = anh;
         this.TrangThai = TrangThai;
     }
-
-    
 
     public String getId() {
         return id;
@@ -70,20 +73,20 @@ public class NhanVien {
         this.HoTen = HoTen;
     }
 
+    public Date getNgaySinh() {
+        return NgaySinh;
+    }
+
+    public void setNgaySinh(Date NgaySinh) {
+        this.NgaySinh = NgaySinh;
+    }
+
     public int getGioiTinh() {
         return GioiTinh;
     }
 
     public void setGioiTinh(int GioiTinh) {
         this.GioiTinh = GioiTinh;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
     }
 
     public String getDiachi() {
@@ -94,12 +97,28 @@ public class NhanVien {
         this.Diachi = Diachi;
     }
 
-    public Date getNgaySinh() {
-        return NgaySinh;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setNgaySinh(Date NgaySinh) {
-        this.NgaySinh = NgaySinh;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public float getLuong() {
+        return luong;
+    }
+
+    public void setLuong(float luong) {
+        this.luong = luong;
+    }
+
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
     }
 
     public int getTrangThai() {
@@ -109,10 +128,6 @@ public class NhanVien {
     public void setTrangThai(int TrangThai) {
         this.TrangThai = TrangThai;
     }
-
-   
-   
-   
-   
+    
     
 }

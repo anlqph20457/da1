@@ -20,13 +20,13 @@ public class NhanVien_repos implements INhanVien_repos{
     @Override
     public List<NhanVien> getALllNV() {
       List<NhanVien> list = new ArrayList<>();
-      String sql ="SELECT ID,TENTK_NV,MATKHAUNV,HOTEN,GIOITINH,SDT,NGAYSINH,DIACHI,TRANGTHAI FROM NHANVIEN";
+      String sql ="SELECT ID,TenTK,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai FROM NhanVien";
       ResultSet rs = JDBC_Helper.Query(sql);
       
         try {
             while (rs.next()) {                
-                NhanVien nv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)
-                    ,rs.getString(8),rs.getInt(9));
+                NhanVien nv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
+                rs.getDate(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getFloat(9),rs.getString(10),rs.getInt(11));
                 list.add(nv);
             }
             return list;
@@ -38,12 +38,12 @@ public class NhanVien_repos implements INhanVien_repos{
     @Override
     public NhanVien getNVByMa(String ma) {
         NhanVien nhanv = null;
-       String sql = "SELECT ID,MATKHAUNV,HOTEN,GIOITINH,SDT,NGAYSINH,DIACHI,TRANGTHAI FROM NHANVIEN WHERE TENTK_NV  = ?";
+       String sql = "SELECT ID,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai FROM NhanVien WHERE TenTK =";
        ResultSet rs = JDBC_Helper.Query(sql,ma);
         try {
             while (rs.next()) {                
-                nhanv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)
-                    ,rs.getString(8),rs.getInt(9));  
+                nhanv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
+                rs.getDate(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getFloat(9),rs.getString(10),rs.getInt(11));  
             }
             return nhanv;
         } catch (Exception e) {
@@ -54,13 +54,13 @@ public class NhanVien_repos implements INhanVien_repos{
     @Override
     public List<NhanVien> findNV(String keyWord) {
         List<NhanVien> list = new ArrayList<>();
-       String sql  ="SELECT ID,MATKHAUNV,HOTEN,GIOITINH,SDT,NGAYSINH,DIACHI,TRANGTHAI FROM NHANVIEN WHERE TenTK_NV LIKE '%"+keyWord+ "%'";
+       String sql  ="SELECT MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai FROM NhanVien WHERE TenTK LIKE '%"+keyWord+ "%'";
         ResultSet rs = JDBC_Helper.Query(sql,keyWord);
       
         try {
             while (rs.next()) {                
-                NhanVien nv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)
-                    ,rs.getString(8),rs.getInt(9));
+                NhanVien nv = new NhanVien(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
+                rs.getDate(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getFloat(9),rs.getString(10),rs.getInt(11));
                 list.add(nv);
             }
             return list;
@@ -71,22 +71,23 @@ public class NhanVien_repos implements INhanVien_repos{
 
     @Override
     public int add(NhanVien nv) {
-        String sql = "INSERT INTO NhanVien (TenTK_NV,MatKhauNV,HoTen,GioiTinh,Sdt,NgaySinh,Diachi,TrangThai)  VALUES (?,?,?,?,?,?,?,?)";
-        return JDBC_Helper.Update(sql, nv.getTenTK_NV(),nv.getMatKhauNV(),nv.getHoTen(),nv.getGioiTinh(),
-               nv.getSdt(),nv.getNgaySinh(),nv.getDiachi(),nv.getTrangThai());
+        String sql = "INSERT INTO NhanVien(TenTK,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai)VALUES(?,?,?,?,?,?,?,?,?,?);";
+        return JDBC_Helper.Update(sql,nv.getTenTK_NV(),nv.getMatKhauNV(),nv.getHoTen(),nv.getNgaySinh(),nv.getGioiTinh(),nv.getDiachi(),nv.getSdt()
+        ,nv.getLuong(),nv.getAnh(),nv.getTrangThai());
     }
 
     @Override
     public int delete(NhanVien nv) {
-       String sql = "DELETE FROM NhanVien WHERE TenTK_NV = ? ";
+       String sql = "DELETE FROM NhanVien WHERE TenTK = ? ";
        return JDBC_Helper.Update(sql,nv.getTenTK_NV());
     }
 
     @Override
     public int update(NhanVien nv) {
-   String sql = "UPDATE NHANVIEN SET MatKhauNV = ? , HoTen  = ? , GioiTinh = ? , Sdt = ? ,NgaySinh = ? , Diachi = ?,TrangThai = ? WHERE TenTK_NV = ?";
-    return JDBC_Helper.Update(sql, nv.getMatKhauNV(),nv.getHoTen(),nv.getGioiTinh(),nv.getSdt(),nv.getNgaySinh(),
-            nv.getDiachi(),nv.getTrangThai(),nv.getTenTK_NV());
+   String sql = "UPDATE NHANVIEN SET MatKhau = ? , HoTen  = ?, Ngaysinh = ?, GioiTinh = ?,DiaChi =  ?, Sdt = ?,Luong=?,Hinh = ?,TrangThai = ? WHERE TenTK = ?";
+    return JDBC_Helper.Update(sql, nv.getMatKhauNV(),nv.getHoTen(),nv.getNgaySinh(),nv.getGioiTinh(),nv.getDiachi(),nv.getSdt()
+        ,nv.getLuong(),nv.getAnh(),nv.getTrangThai(),nv.getTenTK_NV());
+    
     }
     
 }
