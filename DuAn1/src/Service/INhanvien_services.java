@@ -17,4 +17,7 @@ public interface INhanvien_services {
     int add(NhanVien nv);
     int delete(NhanVien nv);
     int update(NhanVien nv);
+    NhanVien getNVByMa(String ma);
+    List<NhanVien> findNV(String ketWord);
+    public boolean checktr(String tk);
 }
