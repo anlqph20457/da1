@@ -38,7 +38,7 @@ public class NhanVien_repos implements INhanVien_repos{
     @Override
     public NhanVien getNVByMa(String ma) {
         NhanVien nhanv = null;
-       String sql = "SELECT ID,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai FROM NhanVien WHERE TenTK =";
+       String sql = "SELECT ID,MatKhau,HoTen,NgaySinh,GioiTinh,DiaChi,Sdt,Luong,Hinh,TrangThai FROM NhanVien WHERE TenTK = ?";
        ResultSet rs = JDBC_Helper.Query(sql,ma);
         try {
             while (rs.next()) {                
